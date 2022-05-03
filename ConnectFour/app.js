@@ -17,9 +17,6 @@
     // highligt won row
 // reset play again
     //Function playAgain()
-function checkWon(){
-
-}
 
 function createBoard(){
     // generate the gameboard divs
@@ -39,7 +36,7 @@ function createBoard(){
 }
 
 function checkWon(){
-
+  // look to see if there are four matches in a row
 
 };
 
@@ -68,18 +65,23 @@ for(let i=0; i<squares.length - 7; i++){
          if(currentPlayer == 1){
             squares[i].classList.add('player-one');
             squares[i].classList.add('taken');
+            //check if won
+            checkWon();
             currentPlayer = 2;
             displayCurrentPlayer.innerHTML = currentPlayer;
+
         }
         else if(currentPlayer == 2){
             squares[i].classList.add('player-two');
             squares[i].classList.add('taken');
+            //check if won
+            checkWon();
             currentPlayer = 1;
             displayCurrentPlayer.innerHTML = currentPlayer;
         }
      } else alert("cannot go in this space");
         // displayCurrentPlayer.innerHTML = currentPlayer;
        
-    }; checkWon()
+    }; 
     }
 
