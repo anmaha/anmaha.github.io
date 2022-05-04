@@ -18,6 +18,8 @@
 // reset play again
     //Function playAgain()
 
+let displayWinner = document.querySelector('#result');
+console.log(displayWinner);
 function createBoard(){
     // generate the gameboard divs
     gameboard = document.querySelector('.gameBoard');
@@ -106,7 +108,7 @@ const winningArrays = [
     [13, 20, 27, 34],
   ]
 
-function checkWon(){
+function checkWonLooping(){
   // look to see if there are four matches in a row
   //loop over rows i then colunms j
    //columns 1 - 7
@@ -123,7 +125,31 @@ for(let j=0; j<7; j++){
         console.log(i+j)
       }
     }
+
+
 };
+
+function checkWon(){
+    for(let j = 0; j<winningArrays.length; j++){
+        const match1 = squareDivs[winningArrays[j][0]];
+        const match2 = squareDivs[winningArrays[j][1]];
+        const match3 = squareDivs[winningArrays[j][2]];
+        const match4 = squareDivs[winningArrays[j][3]];
+
+        if(match1.classList.contains('player-one')&&match2.classList.contains('player-one')&&match3.classList.contains('player-one')&&match4.classList.contains('player-one')){
+            match1.setAttribute('background-color','red');
+            displayWinner.innerText = "RED is the winner";
+
+        }
+        if(match1.classList.contains('player-two')&&match2.classList.contains('player-two')&&match3.classList.contains('player-two')&&match4.classList.contains('player-two')){
+            match1.setAttribute('background-color','yellow');
+            displayWinner.innerText = "YELLOW is the winner";
+
+        }
+
+    }   
+
+}
 
 function playAgain(){
     
@@ -131,25 +157,23 @@ function playAgain(){
 
 createBoard();
 //let squares = document.querySelectorAll('.gameBoard div');
-let squares = gameboard.children;
+let squareDivs = gameboard.children;
 //console.log(squares);
-
-
 let displayCurrentPlayer = document.querySelector('#currentPlayer');
 let currentPlayer = 1;
 displayCurrentPlayer.innerHTML = currentPlayer;
 
-for(let i=0; i<squares.length - 7; i++){
+for(let i=0; i<squareDivs.length - 7; i++){//for 42 divs
   // console.log(squares[i])
   // squares[i].classList.add('player-one');
-    squares[i].onclick = () => {
+    squareDivs[i].onclick = () => {
        // console.log(squares[i])
 
         //console.log(squares[i+7])
-    if(squares[i+7].classList.contains('taken') && !squares[i].classList.contains('taken')){
+    if(squareDivs[i+7].classList.contains('taken') && !squareDivs[i].classList.contains('taken')){
          if(currentPlayer == 1){
-            squares[i].classList.add('player-one');
-            squares[i].classList.add('taken');
+            squareDivs[i].classList.add('player-one');
+            squareDivs[i].classList.add('taken');
             //check if won
             checkWon();
             currentPlayer = 2;
@@ -157,8 +181,8 @@ for(let i=0; i<squares.length - 7; i++){
 
         }
         else if(currentPlayer == 2){
-            squares[i].classList.add('player-two');
-            squares[i].classList.add('taken');
+            squareDivs[i].classList.add('player-two');
+            squareDivs[i].classList.add('taken');
             //check if won
             checkWon();
             currentPlayer = 1;
