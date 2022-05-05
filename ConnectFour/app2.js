@@ -26,7 +26,7 @@ function createBoard(){
     for( let i=0; i<42; i++){
         divs = document.createElement('div');
         divs.setAttribute('id', i)
-        divs.innerText += `${i}`;
+      //  divs.innerText += `${i}`;
         gameboard.appendChild(divs);
     }
 }
@@ -41,16 +41,11 @@ function handleSquareClick(clickedSquareEvent){
     gameState[clickedSquareIndex] = currentPlayer;
     // make sure the square below is taken or none
     clickedSquare.style.backgroundColor = currentPlayer;
-    //check game status
+    //check game status which checks won or draw or changes player turn
     handleResultValidation();
-    // change Player turn
-  //  handlePlayerChange();
 
 }
 
-function handleSquarePlayed(){
-
-}
 function handlePlayerChange(){
     //change current player
     currentPlayer = currentPlayer === 'RED' ? 'YELLOW' : 'RED';
@@ -88,13 +83,18 @@ function handleResultValidation(){
 }
 
 function handleRestartGame(){
-
+    gameActive = true;
+    gameState = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','1','2','3','4','5','6','7'];
+    displayStatus.innerHTML = currentPlayerTurn();
+    // set all squares background color white
+    console.log(squareDivs);
+    squareDivs.forEach( square =>{square.style.backgroundColor = 'white'});
 }
 //create the game board
 createBoard();
 let squareDivs = document.querySelectorAll('.gameBoard div');
 // //let squareDivs = gameboard.children;
-console.log(squareDivs)
+//console.log(squareDivs)
 //add event listener to each square
 squareDivs.forEach(square => { square.addEventListener('click', handleSquareClick) });
 
