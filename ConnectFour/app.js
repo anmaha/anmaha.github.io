@@ -17,9 +17,13 @@
     // highligt won row
 // reset play again
     //Function playAgain()
-
+// DOM Elemets
+let displayCurrentPlayer = document.querySelector('#currentPlayer');
 let displayWinner = document.querySelector('#result');
-console.log(displayWinner);
+
+// Arrays
+let colors =[];
+// Functions
 function createBoard(){
     // generate the gameboard divs
     gameboard = document.querySelector('.gameBoard');
@@ -159,7 +163,6 @@ createBoard();
 //let squares = document.querySelectorAll('.gameBoard div');
 let squareDivs = gameboard.children;
 //console.log(squares);
-let displayCurrentPlayer = document.querySelector('#currentPlayer');
 let currentPlayer = 1;
 displayCurrentPlayer.innerHTML = currentPlayer;
 

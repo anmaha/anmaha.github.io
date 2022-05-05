@@ -1,8 +1,17 @@
 
-/* .outerContainer{
-    width: 770px;
-    height: 600px;
-} */
+/*.outerContainer{
+    width: 90vh;
+    height: 90vw;
+}*/
+
+section {
+    display: table;
+    margin: auto;
+    text-align: center;
+    width: 80vw;
+   height: 80vh;
+}
+
 .gameBoard{
     display: flex;
     flex-wrap: wrap;
