@@ -7,7 +7,7 @@ let currentPlayer = "RED";
 
 //store game state empty text string with 42 values to track played cells and to check won
 
-let gameState = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
+let gameState = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','1','2','3','4','5','6','7'];
 
 // some messages for display status put in functions so they will update with current data when needed
 
@@ -34,15 +34,17 @@ function handleSquareClick(clickedSquareEvent){
     //console.log('square clicked');
     const clickedSquare = clickedSquareEvent.target;
     const clickedSquareIndex = parseInt(clickedSquare.getAttribute('id'));
-    // has the square been played? is game active? set to false if end game, then continue
-    if(gameState[clickedSquareIndex] != '' || gameActive === false){
+    // has the square been played? is the square underneath played? is game active? set to false if end game, then continue
+    if(gameState[clickedSquareIndex] != '' || gameActive === false || gameState[clickedSquareIndex+7] === ''){
         return;
     }
     gameState[clickedSquareIndex] = currentPlayer;
     // make sure the square below is taken or none
     clickedSquare.style.backgroundColor = currentPlayer;
-    //check game status and change player
+    //check game status
     handleResultValidation();
+    // change Player turn
+  //  handlePlayerChange();
 
 }
 
@@ -50,15 +52,39 @@ function handleSquarePlayed(){
 
 }
 function handlePlayerChange(){
+    //change current player
+    currentPlayer = currentPlayer === 'RED' ? 'YELLOW' : 'RED';
+    displayStatus.innerHTML = currentPlayerTurn();
 
 }
 function handleResultValidation(){
     let gameWon = false; // set to true if game won
     // loop over winningArrays and set each match see if color is same
     for(let j=0; j<winningArrays.length; j++){
-       const match1 = gameState[winningArrays[j][0]];
-
+       const a = gameState[winningArrays[j][0]];
+       const b = gameState[winningArrays[j][1]];
+       const c = gameState[winningArrays[j][2]];
+       const d = gameState[winningArrays[j][3]];
+        if( a === '' || b === '' || c === '' || d === ''){
+            continue;
+        }       
+        if( a === b && b === c && c === d){
+            gameWon = true;
+            break;
+        }
     }
+    if(gameWon){
+        displayStatus.innerHTML = winningMessage();
+        gameActive = false;
+        return;
+    }
+    let gameDraw = !gameState.includes('');
+    if(gameDraw){
+        displayStatus.innerHTML = drawMessage();
+        gameActive = false;
+        return;
+    }
+    handlePlayerChange();    
 }
 
 function handleRestartGame(){
