@@ -23,17 +23,48 @@ function createBoard(){
     // generate the gameboard divs
     gameboard = document.querySelector('.gameBoard');
     let divs;
-    for( let i=0; i<49; i++){
+    for( let i=0; i<42; i++){
         divs = document.createElement('div');
         divs.setAttribute('id', i)
         divs.innerText += `${i}`;
-        if (i==42 || i==43 || i==44 || i==45 || i==46 || i==47 || i==48){
-            divs.setAttribute('class', 'taken' );
-            divs.style.visibility = 'hidden';
-         }
-        gameboard.appendChild(divs);     
-        console.log(divs);
+        gameboard.appendChild(divs);
     }
 }
+
+function handleSquareClick(clickedSquareEvent){
+
+    console.log('square clicked');
+
+    const squareClicked = clickedSquareEvent.target;
+
+}
+
+function handleSquarePlayed(){
+
+}
+function handlePlayerChange(){
+
+}
+function handleResultValidation(){
+
+}
+
+function handleRestartGame(){
+
+}
+//create the game board
+createBoard();
+let squareDivs = document.querySelectorAll('.gameBoard div');
+// //let squareDivs = gameboard.children;
+console.log(squareDivs)
+//add event listener to each square
+squareDivs.forEach(square => { square.addEventListener('click', handleSquareClick)
+    
+});
+
+
+
+// add event listener to the restart button
+document.querySelector('.restartGameButton').addEventListener('click', handleRestartGame);
 
 

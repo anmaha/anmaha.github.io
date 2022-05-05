@@ -21,8 +21,8 @@
 let displayCurrentPlayer = document.querySelector('#currentPlayer');
 let displayWinner = document.querySelector('#result');
 
-// Arrays
-let colors =[];
+//Arrays
+
 // Functions
 function createBoard(){
     // generate the gameboard divs
@@ -37,7 +37,7 @@ function createBoard(){
             divs.style.visibility = 'hidden';
          }
         gameboard.appendChild(divs);     
-        console.log(divs);
+       // console.log(divs);
     }
 }
 const winningArrays = [
@@ -160,9 +160,9 @@ function playAgain(){
 };
 
 createBoard();
-//let squares = document.querySelectorAll('.gameBoard div');
-let squareDivs = gameboard.children;
-//console.log(squares);
+let squareDivs = document.querySelectorAll('.gameBoard div');
+//let squareDivs = gameboard.children;
+console.log(squareDivs);
 let currentPlayer = 1;
 displayCurrentPlayer.innerHTML = currentPlayer;
 
