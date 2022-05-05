@@ -6,7 +6,8 @@
 
 section {
     display: table;
-    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
     text-align: center;
     width: 80vw;
    height: 80vh;
@@ -15,8 +16,8 @@ section {
 .gameBoard{
     display: flex;
     flex-wrap: wrap;
-    width: 700px;
-    height: 700px;
+    width: 500px;
+    height: 500px;
     background-color: blue;
 }
 .gameBoard div{
