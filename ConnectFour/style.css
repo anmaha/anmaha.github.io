@@ -45,9 +45,7 @@ section {
     background-color: white;
     border-radius: 50%;
     border: solid black;
-    /* text-align: center; */
-    /* justify-content: center; */
-    /* align-items: center; */
+
 }
 
 .gameBoard div:hover{

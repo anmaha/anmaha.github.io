@@ -19,7 +19,7 @@
     //Function playAgain()
 // DOM Elemets
 let displayCurrentPlayer = document.querySelector('#currentPlayer');
-let displayWinner = document.querySelector('#result');
+let displayWinner = document.querySelector('.gameStatus');
 
 //Arrays
 

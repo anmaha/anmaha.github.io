@@ -42,8 +42,10 @@ function handleSquareClick(clickedSquareEvent){
     // make sure the square below is taken or none
     clickedSquare.style.backgroundColor = currentPlayer;
     //check game status which checks won or draw or changes player turn
-    handleResultValidation();
+   
+   // handleResultValidation();
 
+   checkWonByIndexOfPiece();
 }
 
 function handlePlayerChange(){
@@ -82,8 +84,28 @@ function handleResultValidation(){
     handlePlayerChange();    
 }
 
+function checkWonByIndexOfPiece(clickedSquareIndex){
+// get index of played piece
+// did this in handleSquareClick
+let currentPieceIndex = clickedSquareIndex;
+//representation of the board as an array of 42 strings defined as gameState, for each move we put the currentPlayer into that play's index;
+
+
+// map that to a 2 D array
+    let currentBoard = []; 
+    let columns = 7
+    for(let i = 0; i<gameState.length - 7; i += columns){
+        currentBoard.push(gameState.slice(i,i+columns))
+    }
+    console.log(currentBoard);
+// now check in the four directions
+// check for 4 consecutive matches in the horizontal direction
+}
+
+
 function handleRestartGame(){
     gameActive = true;
+    // clear gameState array
     gameState = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','1','2','3','4','5','6','7'];
     displayStatus.innerHTML = currentPlayerTurn();
     // set all squares background color white
