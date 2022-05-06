@@ -26,7 +26,7 @@ function createBoard(){
     for( let i=0; i<42; i++){
         divs = document.createElement('div');
         divs.setAttribute('id', i)
-      //  divs.innerText += `${i}`;
+        divs.innerText = `${i}`;
         gameboard.appendChild(divs);
     }
 }
@@ -85,12 +85,21 @@ function handleResultValidation(){
 }
 
 function checkWonByIndexOfPiece(clickedSquareIndex){
-// get index of played piece
-// did this in handleSquareClick
-let currentPieceIndex = clickedSquareIndex;
-//representation of the board as an array of 42 strings defined as gameState, for each move we put the currentPlayer into that play's index;
+    // get index of played piece
+    // did this in handleSquareClick
+    let currentPieceIndex = clickedSquareIndex;
+    //representation of the board as an array of 42 strings defined as gameState, for each move we put the currentPlayer into that play's index;
+    // each direction from index of piece
+    directions=[ -6, // one northheast
+                    1, // one east
+                    7, // one north
+                    8 // one southeast
+    ];
 
-
+    for(let i=0; i<gameState.length - 7; i++){
+        
+        }
+    
 // map that to a 2 D array
     let currentBoard = []; 
     let columns = 7
