@@ -1,4 +1,13 @@
-
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    background-color: rgb(150, 170, 157); 
+    margin: 0 auto;
+}
 /*.outerContainer{
     width: 90vh;
     height: 90vw;
@@ -8,10 +17,11 @@
  height: 100vh;
 } */
 section {
-    display: table;
+    /* display: table; */
     margin-right: auto;
     margin-left: auto;
     text-align: center;
+    max-width: 600px;
     /* width: 70vw; */
     /* height: 80vh;     */
 }
@@ -19,8 +29,9 @@ section {
 .gameBoard{
     display: flex;
     flex-wrap: wrap;
-    /* width: 100%;
-    height: 100%; */
+    padding: 10px;
+    /* width: 90%; */
+    /* height: 100%; */
     background-color: blue;
 }
 .gameBoard div{
