@@ -11,9 +11,9 @@ let gameState = ['','','','','','','','','','','','','','','','','','','','','',
 
 // some messages for display status put in functions so they will update with current data when needed
 
-const winningMessage = () => `${currentPlayer} has won!`;
+const winningMessage = () => `<span style="color:${currentPlayer}"> ${currentPlayer}</span> Wins!`;
 const drawMessage = () => `Game ended in a draw!`;
-const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
+const currentPlayerTurn = () => `It's <span style="color:${currentPlayer}"> ${currentPlayer}</span>'s turn`;
 // set initial message to show who's turn
 displayStatus.innerHTML = currentPlayerTurn();
 
@@ -26,7 +26,7 @@ function createBoard(){
     for( let i=0; i<42; i++){
         divs = document.createElement('div');
         divs.setAttribute('id', i)
-        divs.innerText = `${i}`;
+      //  divs.innerText = `${i}`;
         gameboard.appendChild(divs);
     }
 }
