@@ -43,9 +43,9 @@ function handleSquareClick(clickedSquareEvent){
     clickedSquare.style.backgroundColor = currentPlayer;
     //check game status which checks won or draw or changes player turn
    
-   // handleResultValidation();
+    handleResultValidation();
 
-   checkWonByIndexOfPiece();
+   //checkWonByIndexOfPiece();
 }
 
 function handlePlayerChange(){
