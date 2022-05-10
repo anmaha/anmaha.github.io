@@ -19,7 +19,7 @@
     //Function playAgain()
 // DOM Elemets
 let displayCurrentPlayer = document.querySelector('#currentPlayer');
-let displayWinner = document.querySelector('.gameStatus');
+let displayWinner = document.querySelector('#result');
 
 //Arrays
 
@@ -160,7 +160,7 @@ function playAgain(){
 };
 
 createBoard();
-let squareDivs = document.querySelectorAll('.gameBoard div');
+//let squareDivs = document.querySelectorAll('.gameBoard div');
 //let squareDivs = gameboard.children;
 console.log(squareDivs);
 let currentPlayer = 1;
