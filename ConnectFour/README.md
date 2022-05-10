@@ -28,6 +28,7 @@ Once a player takes a turn it is the other player's turn to place a stone in the
 The game can be played again but clicking the Restart Button.
 The game board squares are set to White to simulate an empty gameboard. The the game state array is cleared so the players can drop their respective stones into the gameboard.
 
-###
+### Help on my game
+I found a tutorial on making a TIC TAC TOE game really useful. The tutorial broke down the game to into functions and I did the same thing. 
 
 
